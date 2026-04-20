@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="A simple web application to test your sound reaction speed." />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Reaction Test" />
+  
+  <title>Sound Reaction Speed Test</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%23000000' width='192' height='192'/><text x='50%' y='50%' font-size='96' fill='%23ffffff' text-anchor='middle' dominant-baseline='central' font-weight='bold'>⚡</text></svg>" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Ses Tepki Süresi Testi</h1>
+
+    <section class="controls">
+      <p>Tarayıcı sesini başlatmak için aşağıya tıklayın (gerekli izin):</p>
+      <button id="initBtn">Init Audio</button>
+
+      <div class="settings">
+        <label>Tur sayısı:
+          <input id="rounds" type="number" value="10" min="1" />
+        </label>
+        <label>Min gecikme (ms):
+          <input id="minDelay" type="number" value="1000" min="0" />
+        </label>
+        <label>Max gecikme (ms):
+          <input id="maxDelay" type="number" value="3000" min="0" />
+        </label>
+      </div>
+
+      <div class="test-controls">
+        <button id="startTest" disabled>Start Test</button>
+        <button id="resetBtn">Reset</button>
+      </div>
+    </section>
+
+    <section class="test-area">
+      <div id="status">Hazır.</div>
+      <button id="reactBtn" class="react-btn" disabled>Tıkla (sesi duyduğunda)</button>
+    </section>
+
+    <section class="results">
+      <h2>Sonuçlar</h2>
+      <div id="summary">Henüz sonuç yok.</div>
+      <ul id="list"></ul>
+    </section>
+
+    <footer>
+      <small>Not: Bu test insan tepki süresi + sistem/cihaz ses gecikmesini içerir. Daha doğru ölçüm için kablolu kulaklık/monitor kullanın.</small>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(registration => {
+          console.log('Service Worker registered successfully:', registration);
+        })
+        .catch(error => {
+          console.log('Service Worker registration failed:', error);
+        });
+    }
+  </script>
+</body>
+</html>
