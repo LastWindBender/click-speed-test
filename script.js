@@ -1,6 +1,4 @@
-// script.js (güncellenmiş)
-// Temel mantık aynı, ama bip oynatılırken zaman damgası için
-// önce getOutputTimestamp() (varsa) denenir, yoksa direct DOM updates kullanılır.
+
 /**
  * @type {AudioContext | null}
  */
