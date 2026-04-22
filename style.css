@@ -94,10 +94,13 @@ button:disabled {
   padding: 22px 28px;
   background: #0ea5a4;
   color: #002021;
-}
-.react-btn:not(:fullscreen) {
   border-radius: 12px;
 }
+
+.react-btn:fullscreen {
+  border-radius: 0px;
+}
+
 .results {
   margin-top: 8px
 }
