@@ -95,7 +95,7 @@ button:disabled {
   border-radius: 12px;
   background: #0ea5a4;
   color: #002021;
-  height: 100vw;
+  height: 100vh;
 }
 
 .results {

@@ -36,10 +36,13 @@ initBtn.addEventListener('click', async () => {
     initBtn.disabled = true;
   }
 });
-startTest.addEventListener('click', () => {
+startTest.addEventListener('click', async () => {
   if (!audioCtx) {
     alert('Önce "Init Audio" butonuna tıklayın.');
     return;
+  }
+  if (reactBtn.requestFullscreen) {
+    await reactBtn.requestFullscreen();
   }
   totalRounds = Math.max(1, parseInt(roundsInput.value, 10) || 10);
   results = [];
@@ -154,6 +157,7 @@ function addResult(reaction, fault) {
   list.appendChild(li);
 }
 function finishTest() {
+  document.exitFullscreen();
   statusDiv.textContent = 'Test tamamlandı.';
   startTest.disabled = false;
   roundsInput.disabled = false;
