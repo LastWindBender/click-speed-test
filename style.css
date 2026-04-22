@@ -92,12 +92,12 @@ button:disabled {
 .react-btn {
   font-size: 20px;
   padding: 22px 28px;
-  border-radius: 12px;
   background: #0ea5a4;
   color: #002021;
-  height: 100vh;
 }
-
+.react-btn:not(:fullscreen) {
+  border-radius: 12px;
+}
 .results {
   margin-top: 8px
 }
