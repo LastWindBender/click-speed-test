@@ -97,7 +97,7 @@ button:disabled {
   border-radius: 12px;
 }
 
-.react-btn:fullscreen {
+:fullscreen {
   border-radius: 0px;
 }
 
